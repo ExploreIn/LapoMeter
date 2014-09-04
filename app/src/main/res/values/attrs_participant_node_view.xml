@@ -1,0 +1,10 @@
+<resources>
+    <declare-styleable name="ParticipantNodeView">
+        <attr name="chestCode" format="integer" />
+        <attr name="nodeColor" format="color" />
+        <attr name="chestCodeColor" format="color" />
+        <attr name="chestCodeOpacity" format="float" />
+        <attr name="nodeOpacity" format="float" />
+        <attr name="fontSize" format="integer" />
+    </declare-styleable>
+</resources>
