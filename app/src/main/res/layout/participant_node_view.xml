@@ -1,15 +1,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:app1="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff282828">
 
     <com.explore.lapometer.views.ParticipantNodeView
-        app:nodeColor="@android:color/black"
-        app:chestCodeColor="@android:color/black"
         android:id="@+id/ParticipantNodeView"
+        app:chestCode="25"
         android:layout_width="75dp"
-        android:layout_height="75dp"
-        app:fontSize="85" />
+        app:fontSize="35sp"
+        android:layout_height="75dp"/>
 
 </LinearLayout>

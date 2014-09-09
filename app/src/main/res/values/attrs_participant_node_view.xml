@@ -5,6 +5,6 @@
         <attr name="chestCodeColor" format="color" />
         <attr name="chestCodeOpacity" format="float" />
         <attr name="nodeOpacity" format="float" />
-        <attr name="fontSize" format="integer" />
+        <attr name="fontSize" format="dimension" />
     </declare-styleable>
 </resources>

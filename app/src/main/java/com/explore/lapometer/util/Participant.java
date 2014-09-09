@@ -1,14 +1,17 @@
 package com.explore.lapometer.util;
 
+import android.os.Parcelable;
+
 import com.explore.lapometer.LapCategory;
 import com.explore.lapometer.LapoMeter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Timer;
 /**
  * Created by Manu R on 28/08/2014.
  */
-public class Participant {
+public class Participant implements Serializable {
     private int chessCode;
     private String fName;
     private String lName;
@@ -18,6 +21,7 @@ public class Participant {
 
     public Participant(int chessCode) {
         this.chessCode = chessCode;
+        lapTimes = new ArrayList<Long>();
     }
 
     public void setFirstName(String fName) {
@@ -68,7 +72,7 @@ public class Participant {
 
 
     public void addLapTime(long time) {
-        lapTimes.add(lapTimes.size(), time);
+        lapTimes.add(time);
     }
 
     public int getTotalLaps() {

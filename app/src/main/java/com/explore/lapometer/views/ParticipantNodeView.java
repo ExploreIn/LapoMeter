@@ -24,7 +24,7 @@ public class ParticipantNodeView extends View {
     private int chestCodeColor = Color.RED; // Color of the chest code.
     private int chestCodeOpacity = 255; // Opacity of the chest code.
     private int nodeOpacity = 255; // Opacity of the ring.
-    private int fontSize = 50; // Opacity of the chest code.
+    private float fontSize = 50; // Opacity of the chest code.
 
     private TextPaint textPaintChessCode;
     private Paint nodePainter;
@@ -59,17 +59,19 @@ public class ParticipantNodeView extends View {
         nodeColor = a.getColor(
                 R.styleable.ParticipantNodeView_nodeColor,
                 Color.WHITE);
-        chestCodeOpacity = a.getColor(
+        chestCodeOpacity = a.getInteger(
                 R.styleable.ParticipantNodeView_chestCodeOpacity,
                 255);
-        nodeOpacity = a.getColor(
+        nodeOpacity = a.getInteger(
                 R.styleable.ParticipantNodeView_nodeOpacity,
                 255);
             a.recycle();
-        fontSize = a.getInteger(
-                R.styleable.ParticipantNodeView_fontSize, 50);
+        fontSize = a.getDimension(
+                R.styleable.ParticipantNodeView_fontSize, (float)50);
         mTextHeight = getHeight();
         mTextWidth = getWidth();
+        setMinimumHeight(200);
+        setMinimumWidth(200);
 
         // Set up a default TextPaint object
         textPaintChessCode = new TextPaint();
@@ -107,8 +109,6 @@ public class ParticipantNodeView extends View {
         int radius = contentHeight > contentWidth ? contentWidth/2: contentHeight/2;
         radius -= 5;
         // Draw the text.
-        Rect textBounds = new Rect();
-        textPaintChessCode.getTextBounds("88", 0, 2, textBounds);
         canvas.drawText("" +chestCode,
                 paddingLeft + (contentWidth - mTextWidth) / 2,
                 paddingTop + (contentHeight + mTextHeight) / 2 + 30,
@@ -153,7 +153,7 @@ public class ParticipantNodeView extends View {
     }
 
     /**
-     * Sets the colot to draw the chest code.
+     * Sets the color to draw the chest code.
      * @param chestCodeColor
      * The color of the chest code in integer format.
      */

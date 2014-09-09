@@ -11,18 +11,7 @@ public interface LoginInterface {
     public LoginResult login( String username, String password );
 
     /**
-     * Returns the timeout value in milliseconds if the LoginResult is ACCESS_BLOCKED.
-     */
-    public long getAccessTimeout();
-
-    /**
-     * Returns the count of failed login attempts.
-     */
-    public int getLoginFailCount();
-
-    /**
-     * Gives the result of a login attempt. LOGIN_SUCCESS if login was successful, LOGIN_FAILED in case of failed login attempt and
-     * ACCESS_BLOCKED if login attempts fails more than 3 times.
+     * Gives the result of a login attempt. LOGIN_SUCCESS if login was successful, LOGIN_FAILED in case of failed login attempt
      */
     public enum LoginResult{
         LOGIN_SUCCESS,
