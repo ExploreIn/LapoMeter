@@ -36,6 +36,9 @@ public class Participant implements Serializable {
         this.image = image;
     }
 
+    public void setLapTimes(ArrayList<Long> lapTimes) {
+        this.lapTimes = lapTimes;
+    }
 
     public String getFristName() {
         return fName;
@@ -82,7 +85,7 @@ public class Participant implements Serializable {
     public LapCategory getLapCategory() {
         if( lapTimes.size() >= 3 && lapTimes.size() < 5 ) {
             return LapCategory.LAP_CATEGORY1;
-        } else if ( lapTimes.size() < 10 ) {
+        } else if ( lapTimes.size() >= 5 && lapTimes.size() < 10 ) {
             return LapCategory.LAP_CATEGORY2;
         } else if( lapTimes.size() >= 10 ) {
             return LapCategory.LAP_CATEGORY3;

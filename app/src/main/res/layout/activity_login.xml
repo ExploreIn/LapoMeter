@@ -34,8 +34,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:background="#50ffffff"
-        android:id="@+id/buttonLogin"
         android:textColor="#fff"
+        android:id="@+id/buttonLogin"
         android:layout_gravity="center_horizontal"
         android:text="@string/login"/>
 </LinearLayout>

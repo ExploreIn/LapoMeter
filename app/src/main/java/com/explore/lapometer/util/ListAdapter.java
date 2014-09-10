@@ -12,6 +12,7 @@ import com.explore.lapometer.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 /**
  * Created by I311849 on 9/7/2014.
@@ -54,6 +55,7 @@ public class ListAdapter extends ArrayAdapter<Long> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+        calendar.setTimeZone(TimeZone.getTimeZone("GMT+12:00"));
         calendar.setTimeInMillis(holder.time);
         TextView textViewLapTime = (TextView) convertView.findViewById(R.id.textViewLapTime);
         textViewLapTime.setText("#" + (position + 1)

@@ -39,6 +39,10 @@
             android:name=".activities.ParticipantCountActivity"
             android:label="@string/title_activity_participant_count" >
         </activity>
+        <activity
+            android:name=".activities.CategorySelectionActivity"
+            android:label="@string/title_activity_category_selection" >
+        </activity>
     </application>
 
 </manifest>

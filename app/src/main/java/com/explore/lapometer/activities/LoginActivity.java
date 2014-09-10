@@ -14,7 +14,8 @@ import android.widget.Toast;
 
 import com.explore.lapometer.R;
 import com.explore.lapometer.interfaces.LoginInterface;
-import com.explore.lapometer.stubs.LoginStub;
+import com.explore.lapometer.util.AppConstants;
+import com.explore.lapometer.util.Authentication;
 
 public class LoginActivity extends Activity {
 
@@ -27,7 +28,7 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         SharedPreferences manager = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String credentials = manager.getString("credentials", null);
+        String credentials = manager.getString(AppConstants.CREDENTIALS, null);
         if( credentials == null ) {
             Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
             startActivity(intent);
@@ -51,9 +52,10 @@ public class LoginActivity extends Activity {
                 } else if ( password.isEmpty() ) {
                     editTextPassword.setError("Enter a valid password.");
                 } else {
-
-                    if (new LoginStub().login(username, password) == LoginInterface.LoginResult.LOGIN_SUCCESS ) {
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    SharedPreferences manager = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                    String credentials = manager.getString(AppConstants.CREDENTIALS, null);
+                    if (new Authentication().login(username, password, credentials) == LoginInterface.LoginResult.LOGIN_SUCCESS ) {
+                        Intent intent = new Intent(LoginActivity.this, ParticipantCountActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

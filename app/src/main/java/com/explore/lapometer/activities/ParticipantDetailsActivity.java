@@ -2,11 +2,11 @@ package com.explore.lapometer.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import com.explore.lapometer.util.ListAdapter;
+import com.explore.lapometer.util.AppConstants;
 
 import com.explore.lapometer.R;
 
@@ -19,9 +19,10 @@ public class ParticipantDetailsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_participant_details);
-
+        ArrayList<Long> lapTimes;
+        lapTimes = (ArrayList<Long>) getIntent().getSerializableExtra(AppConstants.LAP_TIMES);
         listView = (ListView) findViewById(R.id.listViewLapTimings);
-        ListAdapter listAdapter = new ListAdapter(this, R.layout.lap_time_layout, getLapTimes());
+        ListAdapter listAdapter = new ListAdapter(this, R.layout.lap_time_layout, lapTimes);
         listView.setAdapter(listAdapter);
     }
 
@@ -43,14 +44,5 @@ public class ParticipantDetailsActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    ArrayList<Long> getLapTimes() {
-        ArrayList<Long> laps = new ArrayList<Long>();
-        for( int i =0; i < 10; i++ ) {
-            laps.add(Math.round(Math.random() * 10000 ));
-            Log.d("hell", "stored " + laps.get(i));
-        }
-        return laps;
     }
 }

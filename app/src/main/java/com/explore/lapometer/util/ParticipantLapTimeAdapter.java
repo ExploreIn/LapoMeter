@@ -11,6 +11,7 @@ import com.explore.lapometer.R;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 
 public class ParticipantLapTimeAdapter extends ArrayAdapter<Participant> {
@@ -52,13 +53,14 @@ public class ParticipantLapTimeAdapter extends ArrayAdapter<Participant> {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+        calendar.setTimeZone(TimeZone.getTimeZone("GMT+12:00"));
         calendar.setTimeInMillis(holder.lapTime);
         TextView textViewLapTime = (TextView) convertView.findViewById(R.id.textViewPartLapTime);
-        textViewLapTime.setText("#" + (position + 1)
-                + " : " + calendar.get(Calendar.HOUR)
-                + " : " + calendar.get(Calendar.MINUTE)
-                + " : " + calendar.get(Calendar.SECOND)
-                + " : " + calendar.get(Calendar.MILLISECOND));
+        textViewLapTime.setText("" + participants.get(position).getChessCode()
+                + " | " + calendar.get(Calendar.HOUR)
+                + ":" + calendar.get(Calendar.MINUTE)
+                + ":" + calendar.get(Calendar.SECOND)
+                + ":" + calendar.get(Calendar.MILLISECOND));
         return convertView;
     }
 

@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import com.explore.lapometer.stubs.LoginStub;
 import android.widget.EditText;
+import com.explore.lapometer.util.AppConstants;
+import com.explore.lapometer.util.Authentication;
 
 import com.explore.lapometer.R;
 
@@ -58,7 +60,7 @@ public class CreateAccountActivity extends Activity {
                 } else {
                     SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("credentials", new LoginStub().encryptCredentials(username, password));
+                    editor.putString(AppConstants.CREDENTIALS, new Authentication().encryptCredentials(username, password));
                     editor.apply();
                     Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
                     startActivity(intent);

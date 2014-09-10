@@ -1,8 +1,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".HomeActivity" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/action_score"
+        android:title="@string/action_score"
+        android:orderInCategory="100"
+        android:enabled="false"
+        android:showAsAction="never" />
+    <item android:id="@+id/action_stop"
+        android:title="@string/action_stop"
+        android:enabled="false"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/action_clear_db"
+        android:title="@string/clear_db"
         android:orderInCategory="100"
         android:showAsAction="never" />
 </menu>
